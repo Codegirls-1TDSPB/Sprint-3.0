@@ -1,9 +1,18 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { FormEvent } from 'react';
 
 export default function LoginForm() {
   const router = useRouter();
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    // Aqui você pode validar o email/senha se quiser
+    // Depois do login, redireciona:
+    router.push('/chat');
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#2B5773] px-4">
@@ -21,7 +30,7 @@ export default function LoginForm() {
 
         {/* Lado direito */}
         <div className="w-[60%]">
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium">
                 Email:
