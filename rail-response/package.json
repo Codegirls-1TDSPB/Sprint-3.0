@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "lucide-react": "^0.487.0",
     "next": "15.2.4",
     "rail-response": "file:",
     "react": "^19.0.0",
