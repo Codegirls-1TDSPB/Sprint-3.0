@@ -1,4 +1,10 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 export default function LoginForm() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#2B5773] px-4">
       <div className="flex items-start bg-gray-100 p-10 rounded-xl shadow-md w-[800px] justify-between">
@@ -50,6 +56,7 @@ export default function LoginForm() {
               <button
                 type="button"
                 className="bg-orange-200 text-orange-900 px-4 py-2 rounded hover:bg-orange-300"
+                onClick={() => router.push('/cadastro')}
               >
                 Criar Conta
               </button>
