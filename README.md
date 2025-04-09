@@ -57,12 +57,12 @@ Bem-vindo ao **RailResponse**, uma plataforma interna de login, cadastro e comun
 📦 src ┣ 📂 app ┃ ┣ 📂 login ┃ ┃ ┣ 📄 LoginForm.tsx ┃ ┃ ┗ 📄 page.tsx ┃ ┣ 📂 cadastro ┃ ┃ ┣ 📄 CadastroForm.tsx ┃ ┃ ┗ 📄 page.tsx ┃ ┗ 📂 chat ┃ ┃ ┣ 📄 AlertActions.tsx ┃ ┃ ┣ 📄 AlertItem.tsx ┃ ┃ ┣ 📄 layout.tsx ┃ ┃ ┗ 📄 page.tsx
 
 
-📸 Pré-visualização
-Você pode ver a prévia das telas criadas acessando:
+📸 Pré-visualização  
+## Você pode ver a prévia das telas criadas acessando:  
 
-/login       → Tela de Login  
-/cadastro    → Tela de Cadastro  
-/chat        → Tela principal com alertas  
+🔐 /login → Tela de Login  
+📝 /cadastro → Tela de Cadastro  
+💬 /chat → Tela principal com alertas  
 
 ## 📊 Estatísticas do Projeto
 
