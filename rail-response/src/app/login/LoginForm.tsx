@@ -1,56 +1,68 @@
-'use client';
-
-import { useState } from 'react';
-
 export default function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Email:', email);
-    console.log('Senha:', senha);
-  };
-
   return (
-    <form 
-      onSubmit={handleSubmit}
-      className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full"
-    >
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-          Email:
-        </label>
-        <input
-          id="email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
-          placeholder="Digite seu email"
-        />
-      </div>
+    <div className="min-h-screen flex items-center justify-center bg-[#2B5773] px-4">
+      <div className="flex items-start bg-gray-100 p-10 rounded-xl shadow-md w-[800px] justify-between">
+        {/* Lado esquerdo */}
+        <div className="flex flex-col items-start w-[35%] pt-0 pl-0">
+          <img
+            src="/imagens/logo.png"
+            alt="Logo"
+            className="w-24 h-24 rounded-full mb-2"
+          />
+          <h2 className="text-2xl font-semibold text-gray-800 mb-1">Sign in</h2>
+          <p className="text-sm text-gray-600">Use your RailResponse</p>
+        </div>
 
-      <div className="mb-6">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="senha">
-          Senha:
-        </label>
-        <input
-          id="senha"
-          type="password"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
-          className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
-          placeholder="Digite sua senha"
-        />
-      </div>
+        {/* Lado direito */}
+        <div className="w-[60%]">
+          <form className="space-y-4">
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium">
+                Email:
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Value"
+                className="w-full px-3 py-2 border rounded-md"
+              />
+            </div>
 
-      <button 
-        type="submit"
-        className="w-full bg-orange-500 text-white font-semibold py-2 rounded hover:bg-orange-600 transition"
-      >
-        Entrar
-      </button>
-    </form>
+            <div>
+              <label htmlFor="senha" className="block text-sm font-medium">
+                Senha:
+              </label>
+              <input
+                id="senha"
+                type="password"
+                placeholder="Value"
+                className="w-full px-3 py-2 border rounded-md"
+              />
+            </div>
+
+            <div>
+              <a href="#" className="text-xs text-blue-600 hover:underline">
+                Esqueceu email ou senha?
+              </a>
+            </div>
+
+            <div className="flex gap-4 pt-2">
+              <button
+                type="button"
+                className="bg-orange-200 text-orange-900 px-4 py-2 rounded hover:bg-orange-300"
+              >
+                Criar Conta
+              </button>
+              <button
+                type="submit"
+                className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600"
+              >
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
