@@ -64,13 +64,6 @@ Bem-vindo ao **RailResponse**, uma plataforma interna de login, cadastro e comun
 📝 /cadastro → Tela de Cadastro  
 💬 /chat → Tela principal com alertas  
 
-## 📊 Estatísticas do Projeto
-
-![Linguagens mais usadas](https://github-readme-stats.vercel.app/api/top-langs/?username=SEU_USUARIO&layout=compact&theme=tokyonight)
-
-![Estatísticas GitHub](https://github-readme-stats.vercel.app/api?username=SEU_USUARIO&show_icons=true&theme=tokyonight)
-
-
 
 ## 🌟 Contribuidoras
 

@@ -45,7 +45,7 @@ export default function Page() {
             <p className="font-bold">Falha técnica!</p>
             <p className="text-sm">Detecção de problemas em equipamento de freio.</p>
             <img
-              src="/imagens/warning.png"
+              src="/imagens/sinal-de-alerta.png"
               alt="Alerta"
               className="w-24 h-24 mx-auto my-4"
             />
