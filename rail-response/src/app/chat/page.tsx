@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import AlertItem from './AlertItem';
 import AlertActions from './AlertActions';
-import { Bell, Settings, ChevronLeft } from 'lucide-react';
+import { Bell, Settings, ChevronLeft, LogOut } from 'lucide-react';
 
 export default function Page() {
+  const router = useRouter();
   const [acaoSelecionada, setAcaoSelecionada] = useState<string | null>(null);
   const [mensagem, setMensagem] = useState('');
   const [mensagensEnviadas, setMensagensEnviadas] = useState<string[]>([]);
@@ -21,6 +23,11 @@ export default function Page() {
     if (e.key === 'Enter') {
       enviarMensagem();
     }
+  };
+
+  const handleLogout = () => {
+    // Aqui você pode limpar o localStorage ou tokens, se necessário
+    router.push('/login');
   };
 
   return (
@@ -54,6 +61,14 @@ export default function Page() {
             <div className="flex gap-3 items-center">
               <span className="text-sm">🔔</span>
               <Settings size={18} />
+              {/* Botão Sair */}
+              <button
+                onClick={handleLogout}
+                className="text-sm text-red-600 hover:text-red-800"
+              >
+                <LogOut size={18} />
+                Sair
+              </button>
             </div>
           </div>
 
