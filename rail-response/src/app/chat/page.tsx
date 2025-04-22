@@ -1,11 +1,28 @@
-// chat/page.tsx
 'use client';
 
+import { useState } from 'react';
 import AlertItem from './AlertItem';
 import AlertActions from './AlertActions';
 import { Bell, Settings, ChevronLeft } from 'lucide-react';
 
 export default function Page() {
+  const [acaoSelecionada, setAcaoSelecionada] = useState<string | null>(null);
+  const [mensagem, setMensagem] = useState('');
+  const [mensagensEnviadas, setMensagensEnviadas] = useState<string[]>([]);
+
+  const enviarMensagem = () => {
+    if (mensagem.trim() === '') return;
+
+    setMensagensEnviadas((prev) => [...prev, mensagem]);
+    setMensagem('');
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      enviarMensagem();
+    }
+  };
+
   return (
     <div className="grid grid-cols-[300px_1fr] gap-4">
       {/* Sidebar */}
@@ -27,7 +44,7 @@ export default function Page() {
 
       {/* Chat box */}
       <div className="bg-white rounded-lg p-4 shadow-md flex flex-col justify-between">
-        <div>
+        <div className="overflow-y-auto max-h-[60vh]">
           {/* Top bar */}
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center gap-2 font-medium">
@@ -57,8 +74,22 @@ export default function Page() {
             </div>
           </div>
 
+          {/* Mensagem do sistema */}
+          {acaoSelecionada && (
+            <div className="bg-purple-50 border border-purple-300 text-purple-800 px-4 py-2 rounded-md mb-2 text-sm">
+              ✅ Situação marcada como: <strong>{acaoSelecionada}</strong>
+            </div>
+          )}
+
+          {/* Mensagens enviadas pelo usuário */}
+          {mensagensEnviadas.map((msg, index) => (
+            <div key={index} className="bg-blue-100 p-2 rounded-md mb-2 w-fit ml-auto text-sm">
+              {msg}
+            </div>
+          ))}
+
           {/* Botões */}
-          <AlertActions />
+          <AlertActions onSelect={setAcaoSelecionada} acaoSelecionada={acaoSelecionada} />
         </div>
 
         {/* Caixa de mensagem */}
@@ -67,6 +98,9 @@ export default function Page() {
             <span className="mr-2">✉️</span>
             <input
               type="text"
+              value={mensagem}
+              onChange={(e) => setMensagem(e.target.value)}
+              onKeyDown={handleKeyDown}
               placeholder="Digite sua mensagem..."
               className="bg-transparent w-full focus:outline-none"
             />
