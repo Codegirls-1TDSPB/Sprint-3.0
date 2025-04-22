@@ -1,6 +1,6 @@
 export default function CadastroForm() {
     return (
-      <div className="min-h-screen bg-[#2B5773] relative flex flex-col items-center justify-center px-4">
+      <div className="min-h-screen bg-[#1b4263] relative flex flex-col items-center justify-center px-4">
         {/* Logo no canto superior esquerdo */}
         <img
           src="/imagens/logo.png"

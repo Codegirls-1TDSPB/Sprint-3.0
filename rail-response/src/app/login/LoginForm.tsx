@@ -15,7 +15,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#2B5773] px-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#1b4263] px-4">
       <div className="flex items-start bg-gray-100 p-10 rounded-xl shadow-md w-[800px] justify-between">
         {/* Lado esquerdo */}
         <div className="flex flex-col items-start w-[35%] pt-0 pl-0">
