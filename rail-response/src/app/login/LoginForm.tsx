@@ -1,16 +1,27 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
+import { Eye, EyeOff } from 'lucide-react'; 
 
 export default function LoginForm() {
   const router = useRouter();
 
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [erro, setErro] = useState('');
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    // Aqui você pode validar o email/senha se quiser
-    // Depois do login, redireciona:
+    // Validação de email e senha
+    if (email !== 'teste@gmail.com' || senha !== '123456') {
+      setErro('Email ou senha incorretos.');
+      return;
+    }
+
+    setErro('');
     router.push('/chat');
   };
 
@@ -38,8 +49,10 @@ export default function LoginForm() {
               <input
                 id="email"
                 type="email"
-                placeholder="Value"
+                placeholder="Seu email"
                 className="w-full px-3 py-2 border rounded-md"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -47,13 +60,26 @@ export default function LoginForm() {
               <label htmlFor="senha" className="block text-sm font-medium">
                 Senha:
               </label>
-              <input
-                id="senha"
-                type="password"
-                placeholder="Value"
-                className="w-full px-3 py-2 border rounded-md"
-              />
+              <div className="relative">
+                <input
+                  id="senha"
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Senha"
+                  className="w-full px-3 py-2 border rounded-md pr-10"
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-2 top-2 text-gray-600"
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
             </div>
+
+            {erro && <p className="text-red-500 text-sm">{erro}</p>}
 
             <div>
               <a href="#" className="text-xs text-blue-600 hover:underline">
