@@ -3,7 +3,6 @@
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Lucide React](https://img.shields.io/badge/Lucide_React-orange?style=for-the-badge)
-![Projeto Acadêmico](https://img.shields.io/badge/Projeto-Acadêmico-blueviolet?style=for-the-badge)
 
 
 Bem-vindo ao **RailResponse**, uma plataforma interna de login, cadastro e comunicação para a empresa CCR. Desenvolvido com **Next.js** e **Tailwind CSS**, esse projeto tem foco na experiência do usuário e em um design limpo e profissional, inspirado em protótipos criados no **Figma**.
