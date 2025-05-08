@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Eye, EyeOff } from 'lucide-react'; 
+import { Eye, EyeOff } from 'lucide-react';
+import { Logo } from '../../components/Logo';
 
 export default function CadastroForm() {
   const router = useRouter();
@@ -15,7 +16,7 @@ export default function CadastroForm() {
   const [senha, setSenha] = useState('');
   const [mensagem, setMensagem] = useState('');
   const [tipoMensagem, setTipoMensagem] = useState<'sucesso' | 'erro' | ''>(''); // NOVO
-  const [senhaVisivel, setSenhaVisivel] = useState(false); 
+  const [senhaVisivel, setSenhaVisivel] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,11 +53,8 @@ export default function CadastroForm() {
 
   return (
     <div className="min-h-screen bg-[#1b4263] relative flex flex-col items-center justify-center px-4">
-      <img
-        src="/imagens/logo.png"
-        alt="Logo"
-        className="absolute top-6 left-6 w-24 h-24 rounded-full"
-      />
+      {/* Usando o componente Logo aqui */}
+      <Logo className="absolute top-6 left-6 w-24 h-24 rounded-full" />
       <h1 className="text-3xl font-bold text-white mb-6">Cadastro</h1>
       <div className="bg-gray-100 p-8 rounded-xl shadow-md w-full max-w-md">
         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -158,9 +156,7 @@ export default function CadastroForm() {
         {/* MENSAGEM COM COR CONDICIONAL */}
         {mensagem && (
           <div
-            className={`mt-4 text-center text-sm ${
-              tipoMensagem === 'sucesso' ? 'text-green-600' : 'text-red-600'
-            }`}
+            className={`mt-4 text-center text-sm ${tipoMensagem === 'sucesso' ? 'text-green-600' : 'text-red-600'}`}
           >
             {mensagem}
           </div>

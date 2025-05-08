@@ -1,6 +1,6 @@
 'use client';
 
-import Image from "next/image";
+import { Logo } from "../components/Logo"; // ajuste o caminho conforme sua estrutura
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -13,13 +13,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#1b4263] text-center">
       {/* Logo */}
-      <Image 
-        src="/imagens/logo.png" 
-        alt="Logo RailResponse" 
-        width={200} 
-        height={200} 
-        className="rounded-full"
-      />
+      <Logo className="rounded-full" />
 
       {/* Nome do sistema */}
       <h1 className="text-orange-500 text-4xl font-bold mt-4">RailResponse</h1>

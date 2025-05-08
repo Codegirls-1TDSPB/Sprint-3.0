@@ -2,7 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react'; 
+import { Eye, EyeOff } from 'lucide-react';
+import { Logo } from '../../components/Logo'; // ✅ Importando o componente Logo
 
 export default function LoginForm() {
   const router = useRouter();
@@ -15,7 +16,6 @@ export default function LoginForm() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    // Validação de email e senha
     if (email !== 'teste@gmail.com' || senha !== '123456') {
       setErro('Email ou senha incorretos.');
       return;
@@ -30,11 +30,7 @@ export default function LoginForm() {
       <div className="flex items-start bg-gray-100 p-10 rounded-xl shadow-md w-[800px] justify-between">
         {/* Lado esquerdo */}
         <div className="flex flex-col items-start w-[35%] pt-0 pl-0">
-          <img
-            src="/imagens/logo.png"
-            alt="Logo"
-            className="w-24 h-24 rounded-full mb-2"
-          />
+          <Logo className="w-24 h-24 mb-2" /> {/* ✅ Substituindo o <img> */}
           <h2 className="text-2xl font-semibold text-gray-800 mb-1">Sign in</h2>
           <p className="text-sm text-gray-600">Use your RailResponse</p>
         </div>
