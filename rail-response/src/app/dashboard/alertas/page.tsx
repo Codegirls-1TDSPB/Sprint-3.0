@@ -7,14 +7,16 @@ type Alerta = {
   id: number;
   titulo: string;
   descricao: string;
-  status: 'Aberto' | 'Em Andamento' | 'Resolvido';
+  status: 'Aberto' | 'Em Andamento' | 'Resolvido' | 'Em Andamento';
 };
 
 const alertasMock: Alerta[] = [
   { id: 1, titulo: 'Falha técnica no equipamento', descricao: 'Problema no freio detectado.', status: 'Aberto' },
   { id: 2, titulo: 'Limpeza necessária', descricao: 'Estação precisa de limpeza extra.', status: 'Em Andamento' },
   { id: 3, titulo: 'Manutenção concluída', descricao: 'Reparo no sistema elétrico finalizado.', status: 'Resolvido' },
+  { id: 4, titulo: 'Falha no sistema de comunicação', descricao: 'Interrupção no sinal detectada.', status: 'Aberto' },
 ];
+
 
 export default function AlertasPage() {
   return (

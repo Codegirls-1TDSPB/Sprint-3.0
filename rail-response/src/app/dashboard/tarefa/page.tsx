@@ -20,7 +20,7 @@ export default function PainelPage() {
             onClick={() => router.push('/painel/alertas')}
             className="bg-[#205375] hover:bg-[#16425e] rounded-lg p-6 text-center font-semibold text-xl transition"
           >
-            Visualizar Alertas
+            Visualizar Tarefas
           </button>
 
           <button

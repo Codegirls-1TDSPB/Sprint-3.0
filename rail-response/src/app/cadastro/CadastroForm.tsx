@@ -41,21 +41,20 @@ export default function CadastroForm() {
       senha === dadosMock.senha
     ) {
       setMensagem('Cadastro realizado com sucesso!');
-      setTipoMensagem('sucesso'); // ✅ Muda a cor para verde
+      setTipoMensagem('sucesso'); 
       setTimeout(() => {
         router.push('/login');  
       }, 2000);
     } else {
       setMensagem('Erro ao cadastrar. Verifique os dados.');
-      setTipoMensagem('erro'); // ❌ Muda a cor para vermelho
+      setTipoMensagem('erro'); 
     }
   };
 
   return (
     <div className="min-h-screen bg-[#1b4263] relative flex flex-col items-center justify-center px-4">
-      {/* Usando o componente Logo aqui */}
       <Logo className="absolute top-6 left-6 w-24 h-24 rounded-full" />
-      <h1 className="text-3xl font-bold text-white mb-6">Cadastro</h1>
+      <h1 className="text-3xl font-bold text-white mb-6">Cadastro De Usuário</h1>
       <div className="bg-gray-100 p-8 rounded-xl shadow-md w-full max-w-md">
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
@@ -68,7 +67,7 @@ export default function CadastroForm() {
               className="w-full px-3 py-2 border rounded-md"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
-              placeholder="Seu nome"
+              placeholder="Nome usuário"
             />
           </div>
           <div>
@@ -81,7 +80,7 @@ export default function CadastroForm() {
               className="w-full px-3 py-2 border rounded-md"
               value={sobrenome}
               onChange={(e) => setSobrenome(e.target.value)}
-              placeholder="Seu sobrenome"
+              placeholder="sobrenome"
             />
           </div>
           <div>
