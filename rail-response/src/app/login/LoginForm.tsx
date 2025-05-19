@@ -1,9 +1,9 @@
-'use client';
+'use client'
 
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
-import { Logo } from '../../components/Logo'; // ✅ Importando o componente Logo
+import { Logo } from '../../components/Logo'; 
 
 export default function LoginForm() {
   const router = useRouter();
@@ -22,7 +22,7 @@ export default function LoginForm() {
     }
 
     setErro('');
-    router.push('/chat');
+    router.push('/dashboard');
   };
 
   return (
@@ -84,13 +84,6 @@ export default function LoginForm() {
             </div>
 
             <div className="flex gap-4 pt-2">
-              <button
-                type="button"
-                className="bg-orange-200 text-orange-900 px-4 py-2 rounded hover:bg-orange-300"
-                onClick={() => router.push('/cadastro')}
-              >
-                Criar Conta
-              </button>
               <button
                 type="submit"
                 className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600"

@@ -12,14 +12,21 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#1b4263] text-center">
-      {/* Logo */}
-      <Logo className="rounded-full" />
+      {/* Logo com alt para acessibilidade */}
+<div role="img" aria-label="Logo da CCR RailResponse" className="rounded-full">
+  <Logo />
+</div>
 
-      {/* Nome do sistema */}
-      <h1 className="text-orange-500 text-4xl font-bold mt-4">RailResponse</h1>
+      {/* Nome do sistema com aria-label */}
+      <h1
+        className="text-orange-500 text-4xl font-bold mt-4"
+        aria-label="Sistema de Gestão de Alertas Ferroviários"
+      >
+        RailResponse
+      </h1>
 
       {/* Botão de entrada */}
-      <button 
+      <button
         onClick={handleClick}
         className="mt-6 bg-orange-500 text-black font-medium text-lg px-6 py-2 rounded hover:bg-orange-600 transition"
       >
