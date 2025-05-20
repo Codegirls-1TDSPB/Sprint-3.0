@@ -18,7 +18,6 @@ const dashboardItems = [
   { label: 'Tarefas', icon: LucideClipboardList, path: '/dashboard/tarefa' },
   { label: 'Equipes', icon: LucideUsers, path: '/dashboard/equipes' },
   { label: 'Usuários', icon: LucideUser, path: '/dashboard/usuario' },
-  { label: 'Estações', icon: LucideTrain, path: '/dashboard/estacao' },
   { label: 'Gerenciar Perfil', icon: LucideUserCog, path: '/dashboard/perfil' },
 ];
 
