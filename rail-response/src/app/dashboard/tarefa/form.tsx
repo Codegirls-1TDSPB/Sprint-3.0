@@ -11,7 +11,7 @@ export default function NovaEstacao() {
   const [status, setStatus] = useState('Ativa'); // Pode ser 'Ativa', 'Inativa', etc.
   const [erro, setErro] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!nome || !localizacao) {
@@ -19,20 +19,23 @@ export default function NovaEstacao() {
       return;
     }
 
-    // Aqui você faria o POST para sua API para salvar a estação
-    // Exemplo fictício:
-    /*
-    fetch('/api/estacoes', {
-      method: 'POST',
-      body: JSON.stringify({ nome, localizacao, status }),
-      headers: { 'Content-Type': 'application/json' },
-    }).then(() => {
-      router.push('/dashboard/estacoes');
-    });
-    */
+    try {
+      const response = await fetch('/api/tarefa', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, localizacao, status }),
+      });
 
-    alert(`Estação cadastrada:\nNome: ${nome}\nLocalização: ${localizacao}\nStatus: ${status}`);
-    router.push('/dashboard/estacoes');
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro desconhecido');
+      }
+
+      alert('Estação cadastrada com sucesso!');
+      router.push('/dashboard/estacoes'); // Ajuste essa rota conforme sua necessidade
+    } catch (error: any) {
+      setErro('Erro ao salvar estação: ' + error.message);
+    }
   };
 
   return (

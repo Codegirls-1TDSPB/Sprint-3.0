@@ -1,95 +1,107 @@
 'use client';
 
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-export default function PerfilPage() {
-  // Estado inicial simulado (em real, viria da API)
-  const [nome, setNome] = useState('João Silva');
-  const [email, setEmail] = useState('joao.silva@email.com');
-  const [senha, setSenha] = useState('');
-  const [confirmSenha, setConfirmSenha] = useState('');
-  const [msgSucesso, setMsgSucesso] = useState('');
-  const [msgErro, setMsgErro] = useState('');
+import Header from '@/components/Cabecalho/Header';  
+import Footer from '@/components/Rodape/Footer';
+import { Logo } from '@/components/Logo';
 
-  const handleSalvar = (e: React.FormEvent) => {
-    e.preventDefault();
+export default function AtualizarPerfil() {
+  const router = useRouter();
+  const [isChecking, setIsChecking] = useState(true);
 
-    if (senha !== confirmSenha) {
-      setMsgErro('As senhas não coincidem.');
-      setMsgSucesso('');
-      return;
+  useEffect(() => {
+    const token = localStorage.getItem('tokenFake');
+    if (!token) {
+      router.push('/login');
+    } else {
+      setIsChecking(false);
     }
+  }, [router]);
 
-    // Aqui você faria a chamada API para atualizar o perfil
-    // Por enquanto só simula sucesso
-    setMsgErro('');
-    setMsgSucesso('Perfil atualizado com sucesso!');
-    setSenha('');
-    setConfirmSenha('');
-  };
+  if (isChecking) {
+    return <p className="text-center mt-10">Carregando...</p>;
+  }
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded shadow mt-8">
-      <h1 className="text-2xl font-bold mb-6">Meu Perfil</h1>
-      <form onSubmit={handleSalvar} className="space-y-4">
-        <div>
-          <label htmlFor="nome" className="block font-medium mb-1">Nome</label>
-          <input
-            id="nome"
-            type="text"
-            className="w-full border rounded px-3 py-2"
-            value={nome}
-            onChange={e => setNome(e.target.value)}
-            required
-          />
+    <>
+      {/* Título laranja só aqui */}
+      <Header customTitleClass="text-orange-500" />
+
+      <main className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md mt-8 mb-10">
+        <div className="flex items-center mb-6">
+          <Logo className="w-16 h-16 mr-4" />
+          <h1 className="text-2xl font-semibold text-gray-800">Atualizar Perfil</h1>
         </div>
 
-        <div>
-          <label htmlFor="email" className="block font-medium mb-1">Email</label>
-          <input
-            id="email"
-            type="email"
-            className="w-full border rounded px-3 py-2"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-          />
-        </div>
+        <form>
+          <div className="mb-4">
+            <label className="block font-medium mb-1" htmlFor="nome">
+              Nome completo
+            </label>
+            <input
+              id="nome"
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="Digite seu nome completo"
+              defaultValue="João da Silva"
+            />
+          </div>
 
-        <div>
-          <label htmlFor="senha" className="block font-medium mb-1">Nova Senha</label>
-          <input
-            id="senha"
-            type="password"
-            className="w-full border rounded px-3 py-2"
-            value={senha}
-            onChange={e => setSenha(e.target.value)}
-            placeholder="Deixe em branco para não alterar"
-          />
-        </div>
+          <div className="mb-4">
+            <label className="block font-medium mb-1" htmlFor="email">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="seuemail@exemplo.com"
+              defaultValue="teste@gmail.com"
+            />
+          </div>
 
-        <div>
-          <label htmlFor="confirmSenha" className="block font-medium mb-1">Confirmar Senha</label>
-          <input
-            id="confirmSenha"
-            type="password"
-            className="w-full border rounded px-3 py-2"
-            value={confirmSenha}
-            onChange={e => setConfirmSenha(e.target.value)}
-            placeholder="Confirme a nova senha"
-          />
-        </div>
+          <div className="mb-4">
+            <label className="block font-medium mb-1" htmlFor="telefone">
+              Telefone
+            </label>
+            <input
+              id="telefone"
+              type="tel"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="(11) 99999-9999"
+              defaultValue="(11) 99999-9999"
+            />
+          </div>
 
-        {msgErro && <p className="text-red-600">{msgErro}</p>}
-        {msgSucesso && <p className="text-green-600">{msgSucesso}</p>}
+          <div className="mb-4">
+            <label className="block font-medium mb-1" htmlFor="endereco">
+              Endereço
+            </label>
+            <input
+              id="endereco"
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              placeholder="Rua Exemplo, 123"
+              defaultValue="Rua Exemplo, 123"
+            />
+          </div>
 
-        <button
-          type="submit"
-          className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition"
-        >
-          Salvar
-        </button>
-      </form>
-    </div>
+          <button
+            type="submit"
+            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            onClick={(e) => {
+              e.preventDefault();
+              alert('Perfil atualizado localmente!');
+            }}
+          >
+            Salvar
+          </button>
+        </form>
+      </main>
+
+      <Footer />
+    </>
   );
 }
