@@ -14,7 +14,7 @@ export default function Equipes() {
   const [equipes, setEquipes] = useState<EquipeDTO[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/equipe') // ajuste a URL se for diferente
+    fetch('/api/equipe')
       .then((res) => {
         if (!res.ok) throw new Error('Erro ao carregar equipes');
         return res.json();
@@ -27,7 +27,7 @@ export default function Equipes() {
     if (!confirm('Tem certeza que deseja excluir esta equipe?')) return;
 
     try {
-      const res = await fetch(`http://localhost:8080/equipe/${id}`, {
+      const res = await fetch(`/api/equipe/${id}`, {
         method: 'DELETE',
       });
 

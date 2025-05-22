@@ -11,10 +11,14 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#1b4263] text-center">
-      
-<div role="img" aria-label="Logo da CCR RailResponse" className="rounded-full">
-</div>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center">
+      <div 
+        role="img" 
+        aria-label="Logo da CCR RailResponse" 
+        className="rounded-full w-48 h-48" 
+      >
+        <Logo />
+      </div>
 
       <h1
         className="text-orange-500 text-4xl font-bold mt-4"

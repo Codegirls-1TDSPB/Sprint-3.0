@@ -1,4 +1,3 @@
-// src/components/Header.tsx
 'use client'
 
 import Link from "next/link";
@@ -29,33 +28,42 @@ export default function Header({ customTitleClass = "" }: HeaderProps) {
       </h1>
 
       <nav>
-        <ul className="flex gap-4">
-          <li>
-            <Link href="/">Início</Link>
+        <ul className="flex items-center gap-16">
+          <li className="px-3">
+            <Link href="/" className="hover:underline">
+              Início
+            </Link>
           </li>
 
-          {!isLoggedIn ? (
-            <>
-              <li>
-                <Link href="/login">Login</Link>
-              </li>
-              <li>
-                <Link href="/cadastro">Cadastro</Link>
-              </li>
-            </>
+          {isLoggedIn && (
+            <li className="px-3">
+              <Link href="/dashboard/notificacao" className="hover:underline">
+                Notificação
+              </Link>
+            </li>
+          )}
+
+          {isLoggedIn ? (
+            <li className="px-3">
+              <button
+                onClick={handleLogout}
+                className="border border-orange-500 text-orange-500 px-3 py-1 rounded hover:bg-orange-500 hover:text-white transition"
+                type="button"
+              >
+                Sair
+              </button>
+            </li>
           ) : (
             <>
-              <li>
-                <Link href="/perfil">Perfil</Link>
+              <li className="px-3">
+                <Link href="/login" className="hover:underline">
+                  Login
+                </Link>
               </li>
-              <li>
-                <button
-                  onClick={handleLogout}
-                  className="bg-orange-400 px-3 py-1 rounded hover:bg-orange-500"
-                  type="button"
-                >
-                  Logout
-                </button>
+              <li className="px-3">
+                <Link href="/cadastro" className="hover:underline">
+                  Cadastro
+                </Link>
               </li>
             </>
           )}
