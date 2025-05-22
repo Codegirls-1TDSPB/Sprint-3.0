@@ -15,7 +15,7 @@ import {
 
 const dashboardItems = [
   { label: 'Alertas', icon: LucideAlertTriangle, path: '/dashboard/alertas' },
-  { label: 'x', icon: LucideBell, path: 'x' },
+  { label: 'Notificações', icon: LucideBell, path: '/dashboard/notificacao' },
   { label: 'Tarefas', icon: LucideClipboardList, path: '/dashboard/tarefa' },
   { label: 'Equipes', icon: LucideUsers, path: '/dashboard/equipes' },
   { label: 'Usuários', icon: LucideUser, path: '/dashboard/usuarios' },

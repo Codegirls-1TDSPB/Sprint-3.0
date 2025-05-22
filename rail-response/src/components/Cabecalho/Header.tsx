@@ -37,8 +37,8 @@ export default function Header({ customTitleClass = "" }: HeaderProps) {
 
           {isLoggedIn && (
             <li className="px-3">
-              <Link href="/dashboard/notificacao" className="hover:underline">
-                Notificação
+              <Link href="/" className="hover:underline">
+                x
               </Link>
             </li>
           )}
